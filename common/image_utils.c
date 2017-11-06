@@ -357,6 +357,24 @@ int negatif(uint8_t * bitmap, uint32_t width, uint32_t height) {
     return status;
 }
 
+void vertical_mirror_correction(uint8_t * bitmap, uint32_t width, uint32_t height) {
+    uint32_t line_counter = height;
+    uint8_t  * line = bitmap;
+    while (line_counter--) {
+        uint32_t row_counter = width / 2;
+        uint8_t * p = line;
+        uint8_t * q = line + width - 1;
+        while(row_counter--) {
+            uint8_t t = *p;
+            *p = *q;
+            *q = t;
+            p++;
+            q--;
+        }
+        line += width;
+    }
+}
+
 int adjust_pixel(uint8_t * bitmap, uint32_t width, uint32_t height, float coef, uint8_t pente) {
     int status = 0;
 
