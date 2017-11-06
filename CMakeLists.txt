@@ -5,5 +5,5 @@ set(CMAKE_C_STANDARD 11)
 
 #set(SOURCE_FILES main.c )
 #set(SOURCE_FILES base.c)
-set(SOURCE_FILES base_2.c)
+set(SOURCE_FILES day_one_base_2.c)
 add_executable(TestOptimisationDeCode ${SOURCE_FILES})

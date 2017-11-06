@@ -38,7 +38,7 @@ int main(int argc, const char * argv[])
 //            bitmap[n] = 0;
 //        }
 
-        //TROISIEME METHODE
+        //TROISIEME METHODE --> la plus efficace
         p = bitmap; //condition initiale
         n = HEIGHT * WIDTH;
         while (n != 0) {
@@ -92,7 +92,7 @@ int main(int argc, const char * argv[])
 //        }
 
 
-        //M Horizontal
+        //Miroir Horizontal
 //        n = HEIGHT/2;
 //        p = bitmap;
 //        p1 = bitmap + WIDTH * (HEIGHT-1);
@@ -117,7 +117,7 @@ int main(int argc, const char * argv[])
 //            p1 = p1 - WIDTH;
 //        }
 
-        //M Vertical
+        //Miroir Vertical
         n = HEIGHT;
         p = bitmap;
         p1 = bitmap + WIDTH - 1;
@@ -138,7 +138,7 @@ int main(int argc, const char * argv[])
             p1 +=WIDTH;
         }
 
-//        //en negatif
+//        //en negatif --> methode couteuse
 //        p = bitmap; //condition initiale
 //        n = HEIGHT * WIDTH;
 //        while (n != 0) {
@@ -148,6 +148,7 @@ int main(int argc, const char * argv[])
 //        }
 
 
+        //ALGORITHME DU LUT pour le negatif
         if (lut) {
             for(int i =0; i<255; i++) {
                 lut[i]= (uint8_t) (255 - i);
