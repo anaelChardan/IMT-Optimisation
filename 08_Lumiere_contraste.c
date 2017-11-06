@@ -14,7 +14,8 @@ int init_process_data(process_data_t * process_data, int argc, const char * argv
 	int status = 0;
 	uint32_t i = 0;
 	double v= 0.0;
-	
+	argv[1] = "/Users/anael/Developer/IMT/TestOptimisationDeCode/large_files/sea.bmp";
+    argc = 2;
 	if( process_data != NULL ) {
 		memset(process_data, 0, sizeof(process_data_t));
 		// affect processing function
