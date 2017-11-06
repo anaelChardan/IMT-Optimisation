@@ -3,8 +3,8 @@
 #include <string.h> // memset
 #include <stdint.h> // uintxx_t types
 
-#include "time_measure.h"
-#include "image_utils.h"
+#include "common/time_mesure.h"
+#include "common/image_utils.h"
 
 int basic_data_processing(process_data_t * process_data); // 28s
 int basic_data_processing_v2(process_data_t * process_data); // 22s

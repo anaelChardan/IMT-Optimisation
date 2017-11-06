@@ -3,7 +3,7 @@
 #include <string.h> // memset
 #include <stdint.h> // uintxx_t types
 
-#include "image_utils.h"
+#include "common/image_utils.h"
 
 #define OPTIM_LEVEL 0
 
