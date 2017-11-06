@@ -20,5 +20,10 @@ char * suffixed_filename(const char * file_name, char * suffix);
 int read_bmp_file(const char * file_path, bmp_header_t * pheader, uint8_t ** pbitmap);
 int save_bitmap(const char * file_name, bmp_header_t * pheader, uint8_t * bitmap);
 int apply_lookup_table(uint8_t * bitmap, uint32_t width, uint32_t height, uint8_t * lut);
+int write_diag(uint8_t * bitmap, uint32_t width, uint32_t height);
+int write_line(uint8_t * bitmap, uint32_t width, uint32_t height, uint32_t line);
+int write_column(uint8_t * bitmap, uint32_t width, uint32_t height, uint32_t colum);
+int horizontal_mirror(uint8_t * bitmap, uint32_t width, uint32_t height);
+int vertical_mirror(uint8_t * bitmap, uint32_t width, uint32_t height);
 
 #endif // !__IMAGE_UTILS__

@@ -5,5 +5,5 @@ set(CMAKE_C_STANDARD 11)
 
 #set(SOURCE_FILES main.c )
 #set(SOURCE_FILES base.c)
-set(SOURCE_FILES day_one_base_2.c)
+set(SOURCE_FILES common/image_utils.c common/image_utils.h common/bmp.c common/bmp.h 06_BMP_Read_Write.c)
 add_executable(TestOptimisationDeCode ${SOURCE_FILES})

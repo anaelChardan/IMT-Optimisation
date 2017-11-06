@@ -3,7 +3,9 @@
 #include <string.h> // memset
 #include <stdint.h> // uintxx_t types
 
-#include "image_utils.h"
+#include "common/image_utils.h"
+
+
 
 int main(int argc, const char * argv[])
 {
@@ -11,12 +13,21 @@ int main(int argc, const char * argv[])
 	bmp_header_t header, copy_header;
 	uint8_t * bitmap = NULL;
 	char * copy_file_path = NULL;
-	
+	uint32_t counter = 0, row_counter = 0;
+	uint8_t * p = NULL;
+
+	argv[1] = "/Users/anael/Developer/IMT/TestOptimisationDeCode/sample/chat.bmp";
+	argc = 2;
+
 	switch( argc ) {
 		case 2 :
 			status = read_bmp_file(argv[1], &header, &bitmap);
 			if( status != -1 ) {
-				copy_file_path = suffixed_filename(argv[1], " (copy).bmp");
+				if( bitmap != NULL ) {
+					write_line(bitmap, header.width, header.height, 2);
+				}
+
+				copy_file_path = suffixed_filename(argv[1], "_copy.bmp");
 				if( copy_file_path ) {
 					
 					// do something with picture stored at bitmap…

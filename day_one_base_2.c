@@ -93,29 +93,29 @@ int main(int argc, const char * argv[])
 
 
         //Miroir Horizontal
-//        n = HEIGHT/2;
-//        p = bitmap;
-//        p1 = bitmap + WIDTH * (HEIGHT-1);
-//
-//        while (n--) {
-//            // ECHANGE DE LIGNE
-//            l = p;
-//            l1 = p1;
-//            n1 = WIDTH;
-//
-//            while (n1--) {
-//                temp = *l;
-//                *l = *l1;
-//                *l1 = temp;
-//
-//                l++;
-//                l1++;
-//            }
-//
-//            // ON PASSE AU SUIVANT
-//            p = p + WIDTH;
-//            p1 = p1 - WIDTH;
-//        }
+        n = HEIGHT/2;
+        p = bitmap;
+        p1 = bitmap + WIDTH * (HEIGHT-1);
+
+        while (n--) {
+            // ECHANGE DE LIGNE
+            l = p;
+            l1 = p1;
+            n1 = WIDTH;
+
+            while (n1--) {
+                temp = *l;
+                *l = *l1;
+                *l1 = temp;
+
+                l++;
+                l1++;
+            }
+
+            // ON PASSE AU SUIVANT
+            p = p + WIDTH;
+            p1 = p1 - WIDTH;
+        }
 
         //Miroir Vertical
         n = HEIGHT;

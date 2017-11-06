@@ -217,3 +217,117 @@ int apply_lookup_table(uint8_t * bitmap, uint32_t width, uint32_t height, uint8_
 	return status;
 }
 
+int write_diag(uint8_t * bitmap, uint32_t width, uint32_t height) {
+    int status = 0;
+
+    uint8_t * p;
+    uint32_t counter;
+
+    // draw line x = y
+    counter = height < width ? height : width;
+    p = bitmap;
+    while( counter-- ) {
+        *p = 0x12;
+        p += width + 1;
+    }
+
+    return status;
+}
+
+int write_line(uint8_t * bitmap, uint32_t width, uint32_t height, uint32_t line) {
+    int status = 0;
+
+    uint8_t * p;
+    uint32_t counter = width;
+
+    p = bitmap + width * line;
+    while (counter--) {
+        *p = 0x12;
+        p = p + 1;
+    }
+
+    return status;
+}
+
+int write_column(uint8_t * bitmap, uint32_t width, uint32_t height, uint32_t colum) {
+    int status = 0;
+
+    uint8_t * p;
+    uint32_t counter = height;
+
+    p = bitmap + colum;
+    while (counter--) {
+        *p = 0x12;
+        p = p + width;
+    }
+
+    return status;
+}
+
+int horizontal_mirror(uint8_t * bitmap, uint32_t width, uint32_t height) {
+    int status = 0;
+
+    uint32_t n = height/2;
+    uint8_t * p = bitmap;
+    uint8_t * p1 = bitmap + width * (height-1);
+    uint8_t * l = NULL;
+    uint8_t * l1 = NULL;
+    uint8_t temp = NULL;
+    uint32_t n1 = 0;
+    while (n--) {
+        // ECHANGE DE LIGNE
+        l = p;
+        l1 = p1;
+        n1 = width;
+
+        while (n1--) {
+            temp = *l;
+            *l = *l1;
+            *l1 = temp;
+
+            l++;
+            l1++;
+        }
+
+        // ON PASSE AU SUIVANT
+        p = p + width;
+        p1 = p1 - width;
+    }
+
+    return status;
+}
+
+int vertical_mirror(uint8_t * bitmap, uint32_t width, uint32_t height) {
+    int status = 0;
+
+    uint32_t n = height/2;
+    uint8_t * p = bitmap;
+    uint8_t * p1 = bitmap + width * (height-1);
+    uint8_t * l = NULL;
+    uint8_t * l1 = NULL;
+    uint8_t temp = NULL;
+    uint32_t n1 = 0;
+
+    n = height;
+    p = bitmap;
+    p1 = bitmap + width - 1;
+    while (n--) {
+        //ECHANGE DE COLONNES
+        l = p;
+        l1 = p1;
+        n1 = width / 2;
+        while (n1--) {
+            temp = *l;
+            *l = *l1;
+            *l1 = temp;
+
+            l++;
+            l--;
+        }
+        p +=width;
+        p1 +=width;
+    }
+
+    return status;
+}
+
