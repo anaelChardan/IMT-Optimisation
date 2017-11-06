@@ -338,3 +338,43 @@ int vertical_mirror(uint8_t * bitmap, uint32_t width, uint32_t height) {
     return status;
 }
 
+int negatif(uint8_t * bitmap, uint32_t width, uint32_t height) {
+    int status = 0;
+
+    uint8_t * lut = (uint8_t *) malloc(256 * sizeof(uint8_t));
+
+    for(int i =0; i<256; i++) {
+        lut[i]= (uint8_t) (255 - i);
+    }
+
+    uint8_t * p = bitmap;
+    u_int32_t  counter = width * height;
+    while (counter--) {
+        *p = lut[*p];
+        p++;
+    }
+
+    return status;
+}
+
+int adjust_pixel(uint8_t * bitmap, uint32_t width, uint32_t height, float coef, uint8_t pente) {
+    int status = 0;
+
+    uint8_t * lut = (uint8_t *) malloc(256 * sizeof(uint8_t));
+
+    for(int i =0; i<256; i++) {
+        lut[i]= (uint8_t) (coef * i + pente);
+    }
+
+    uint8_t * p = bitmap;
+    u_int32_t  counter = width * height;
+    while (counter--) {
+        *p = lut[*p];
+        p++;
+    }
+
+    return status;
+}
+
+
+

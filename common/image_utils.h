@@ -25,5 +25,7 @@ int write_line(uint8_t * bitmap, uint32_t width, uint32_t height, uint32_t line)
 int write_column(uint8_t * bitmap, uint32_t width, uint32_t height, uint32_t colum);
 int horizontal_mirror(uint8_t * bitmap, uint32_t width, uint32_t height);
 int vertical_mirror(uint8_t * bitmap, uint32_t width, uint32_t height);
+int negatif(uint8_t * bitmap, uint32_t width, uint32_t height);
+int adjust_pixel(uint8_t * bitmap, uint32_t width, uint32_t height, float coef, uint8_t pente);
 
 #endif // !__IMAGE_UTILS__

@@ -24,7 +24,7 @@ int main(int argc, const char * argv[])
 			status = read_bmp_file(argv[1], &header, &bitmap);
 			if( status != -1 ) {
 				if( bitmap != NULL ) {
-					vertical_mirror(bitmap, header.width, header.height);
+					adjust_pixel(bitmap, header.width, header.height, 0.7, 15);
 				}
 
 				copy_file_path = suffixed_filename(argv[1], "_copy.bmp");
