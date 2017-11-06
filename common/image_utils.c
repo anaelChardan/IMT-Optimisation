@@ -217,6 +217,10 @@ int apply_lookup_table(uint8_t * bitmap, uint32_t width, uint32_t height, uint8_
 	return status;
 }
 
+///////////////////////////////////
+////// LES ALGOS DE VENDREDI //////
+///////////////////////////////////
+
 int write_diag(uint8_t * bitmap, uint32_t width, uint32_t height) {
     int status = 0;
 
@@ -300,33 +304,36 @@ int horizontal_mirror(uint8_t * bitmap, uint32_t width, uint32_t height) {
 int vertical_mirror(uint8_t * bitmap, uint32_t width, uint32_t height) {
     int status = 0;
 
-    uint32_t n = height/2;
-    uint8_t * p = bitmap;
-    uint8_t * p1 = bitmap + width * (height-1);
-    uint8_t * l = NULL;
-    uint8_t * l1 = NULL;
-    uint8_t temp = NULL;
+    uint32_t n = height;
     uint32_t n1 = 0;
+    uint8_t * c = bitmap; // Position première ligne
+    uint8_t * p = NULL; // Position première ligne
+    uint8_t temp = 0;
+    uint8_t * p1 = NULL; // Position première ligne
+    uint8_t * c1 = bitmap + width - 1; // Position dernière ligne
 
-    n = height;
-    p = bitmap;
-    p1 = bitmap + width - 1;
-    while (n--) {
-        //ECHANGE DE COLONNES
-        l = p;
-        l1 = p1;
-        n1 = width / 2;
-        while (n1--) {
-            temp = *l;
-            *l = *l1;
-            *l1 = temp;
+    while (n != 0) { // Pour chaque ligne jusqu'à la moitié
+        // ECHANGE DE LIGNE
+        p = c; // ligne 1
+        p1 = c1; // ligne 2
+        n1 = width/2; // Taille ligne
 
-            l++;
-            l--;
+        while (n1 != 0) {  // Pour chaque pixel de la ligne
+            temp = *p;
+            *p = *p1;
+            *p1 = temp;
+
+            p++;
+            p1--;
+            n1--;
         }
-        p +=width;
-        p1 +=width;
+
+        // ON PASSE AU SUIVANT
+        c = c + width;
+        c1 = c1 + width;
+        n = n - 1;
     }
+
 
     return status;
 }
