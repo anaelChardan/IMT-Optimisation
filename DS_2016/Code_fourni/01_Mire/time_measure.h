@@ -2,8 +2,8 @@
 #define _time_measure_h
 
 #define LOOPS 40
-#define WIDTH 390//*10*5
-#define HEIGHT 320//*10*5
+#define WIDTH 15//*10*5
+#define HEIGHT 12//*10*5
 
 struct __process_data {
 	int (* data_processing_function)(struct __process_data * process_data);

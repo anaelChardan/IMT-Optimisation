@@ -11,8 +11,8 @@ set(
     common/image_utils.h
     common/bmp.c
     common/bmp.h
-    "DS_2016/Code_fourni/01_Mire/01_Mire.c"
-    "DS_2016/Code_fourni/01_Mire/time_measure.h"
-    "DS_2016/Code_fourni/01_Mire/time_mesure.c"
+#    "DS_2016/Code_fourni/01_Mire/01_Mire.c"
+    "DS_2016/Code_fourni/02_subsampling/time_measure.h"
+    "DS_2016/Code_fourni/02_subsampling/02_subsampling.c"
 )
 add_executable(TestOptimisationDeCode ${SOURCE_FILES})
