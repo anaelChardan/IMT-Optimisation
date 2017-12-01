@@ -9,7 +9,6 @@ public class Tremplin {
 		System.out.println("Surface cercle : " + ce.getSurface());
 		System.out.println("Surface carré : " + ca.getSurface());
 		System.out.println("Surface rectangle : " + r.getSurface());
-
 	}
 
 }
